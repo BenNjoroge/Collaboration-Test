@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="8dp"
-            android:textSize="60sp"
+            android:textSize="48sp"
             tools:text="Username" />
 
         <LinearLayout
@@ -32,7 +32,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:padding="8dp"
-                android:textSize="48sp"
+                android:textSize="24sp"
                 tools:text="Month" />
 
             <TextView
@@ -42,7 +42,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:padding="8dp"
-                android:textSize="48sp"
+                android:textSize="24sp"
                 tools:text="Number" />
 
         </LinearLayout>
@@ -58,12 +58,14 @@
         android:layout_marginRight="32dp"
         android:background="@drawable/random_number_text_bg"
         android:textColor="@android:color/white"
+        android:gravity="center"
+        android:textSize="150sp"
         tools:text="69" />
 
     <Button
         android:id="@+id/regenerate_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="65dp"
         android:layout_below="@id/random_number_text_view"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
@@ -71,8 +73,8 @@
 
     <Button
         android:id="@+id/back_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="65dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="32dp"
