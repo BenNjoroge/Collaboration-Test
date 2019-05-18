@@ -11,29 +11,61 @@ import android.widget.Toast;
 
 public class LandingActivity extends AppCompatActivity {
 
-    String mUsername;
-    String mMonth;
-    Integer mNumber;
-    private Button nextActivityButton;
+    private String mUsername;
+    private String mMonth;
+    private Integer mNumber;
+
+    Button nextActivityButton;
+
+    private EditText usernameEditText;
+    private EditText monthEditText;
+    private EditText numberEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing);
 
-        getEditTextsData();
+        //set EditTexts
+        usernameEditText = findViewById(R.id.username_edit_text);
+        monthEditText = findViewById(R.id.month_edit_text);
+        numberEditText = findViewById(R.id.number_edit_text);
 
+
+        //get next button and configure to open new Activity
         nextActivityButton = findViewById(R.id.next_activity_button);
         nextActivityButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openAnotherActivity();
+
+                if (isAllEditTextsFilled()) {
+
+                    setEditTextsData();
+
+                    openAnotherActivity();
+                }
+
             }
         });
     }
 
+    private boolean isAllEditTextsFilled() {
+        if (TextUtils.isEmpty(usernameEditText.getText().toString())) {
+            Toast.makeText(this, "Please enter your name ", Toast.LENGTH_SHORT).show();
+            return false;
+        } else if (TextUtils.isEmpty(monthEditText.getText().toString())) {
+            Toast.makeText(this, "Please enter your month ", Toast.LENGTH_SHORT).show();
+            return false;
+        } else if (TextUtils.isEmpty(numberEditText.getText().toString())) {
+            Toast.makeText(this, "Please enter your number ", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        return true;
+    }
+
     private void openAnotherActivity() {
-        Intent myIntent = new Intent(this, MainActivity.class);
+        Intent myIntent = new Intent(LandingActivity.this, MainActivity.class);
         myIntent.putExtra("username", mUsername);
         myIntent.putExtra("month", mMonth);
         myIntent.putExtra("number", mNumber);
@@ -41,25 +73,13 @@ public class LandingActivity extends AppCompatActivity {
 
     }
 
-    private boolean getEditTextsData() {
-
-        EditText usernameEditText = findViewById(R.id.username_edit_text);
-        EditText monthEditText = findViewById(R.id.month_edit_text);
-        EditText numberEditText = findViewById(R.id.number_edit_text);
+    private void setEditTextsData() {
 
         mUsername = usernameEditText.getText().toString();
         mMonth = monthEditText.getText().toString();
         mNumber = Integer.parseInt(numberEditText.getText().toString());
 
-        if (!checkIfStringIsEmpty(mUsername, mMonth, mNumber)) {
-            Toast.makeText(this, "Fill all the fields!", Toast.LENGTH_SHORT).show();
-            return false;
-        } else {
-            return true;
-        }
     }
 
-    private boolean checkIfStringIsEmpty(String name, String month, Integer number) {
-        return TextUtils.isEmpty(name) || TextUtils.isEmpty(month) || number == null;
-    }
+
 }
