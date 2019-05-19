@@ -56,29 +56,32 @@
         android:layout_centerInParent="true"
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
-        android:background="@drawable/random_number_text_bg"
-        android:textColor="@android:color/white"
         android:gravity="center"
+        android:textColor="@android:color/black"
         android:textSize="150sp"
         tools:text="69" />
 
     <Button
+        android:background="@drawable/main_button_bg"
         android:id="@+id/regenerate_button"
         android:layout_width="150dp"
         android:layout_height="65dp"
         android:layout_below="@id/random_number_text_view"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
-        android:text="regenerate" />
+        android:text="regenerate"
+        android:textColor="@android:color/white" />
 
     <Button
+        android:background="@drawable/alternate_button_bg"
         android:id="@+id/back_button"
         android:layout_width="150dp"
         android:layout_height="65dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="32dp"
-        android:text="back" />
+        android:text="back"
+        android:textColor="@android:color/white" />
 
 
 </RelativeLayout>
